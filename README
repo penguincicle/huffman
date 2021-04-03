@@ -1,0 +1,34 @@
+Name: Stuart Hamilton
+ID #: 1619864
+CMPUT 274 Fall 2020
+
+Assignment 2: Huffman Coding
+
+Included Files:
+- Makefile: automatically start web server, various tests
+- bitio.py: Contains the classs BitWriter and BitReader
+- compress.py: Runs the code to compress a file.
+- decompress.py: Runs the code to decompress a file.
+- huffman.py: Used to create huffman trees as well as encode and decode messages.
+- webserver.py: The file that allows viewing of the compressed files as they are being sent to the web browser
+- test.1.txt, arrow.png, oval.png: various test files that should compress
+- wwwroot directory: contains compressed versions of the webpage (index.html.huf) and the image of Huffman (huffman.bmp.huf)
+
+Modified Files:
+- util.py: Contains the five functions read_tree(), decode_byte(), write_tree(), compress(), and decompress().
+
+util.py:
+
+    This program imports huffman which creates the huffman tree, bitio for bit reading and writing, and pickle for loading and dumping the tree from a stream. This program contains functions compress and decompress to be used by a driver code.
+Notes and Assumptions:
+
+    util.py is assumed to be run with a driver code where there are no OS erros or file not found errors for file i/o.
+
+Running Instructions:
+
+    util.py needs to be run with a driver code that opens the compressed and uncompressed streams, and also creates the tree with huffman.py when compressing specifically.
+
+Running the code:
+Go to the wwwroot directory. Open a bash terminal and open the web server using "python3 ../webserver.py". You can then go to the url "http://localhost:8000" to view the webpage and image of Huffman that will appear if the decompressor is functioning properly. Note that the port can be changed by modifying the variable port in webserver.py.
+
+To compress a file, first copy that file over to the wwwroot directory and then move to that directory and type "python3 ../compress.py somefile.ext" where somefile is the name of the file you wish to compress and ext is the extension. Then go to the url "http://localhost:8000/somefile.ext" to view and/or download the decompressed file.
